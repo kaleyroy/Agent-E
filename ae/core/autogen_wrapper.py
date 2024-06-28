@@ -78,7 +78,27 @@ class AutogenWrapper:
         if os.getenv("AUTOGEN_MODEL_BASE_URL"):
             model_info["base_url"] = os.getenv("AUTOGEN_MODEL_BASE_URL") # type: ignore
 
-        env_var: list[dict[str, str]] = [model_info]
+        env_var: list[dict[str, str]] = [] #[model_info]
+        env_var.append(
+            {
+                "model": "gpt-4",
+                "api_key": "8544a9211df44653b2a267add1df894d",
+                "base_url": "https://openai-api-01.openai.azure.com",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+            }
+        )
+        env_var.append(
+            {
+                "model": "gpt-4o",
+                "api_key": "8544a9211df44653b2a267add1df894d",
+                "base_url": "https://openai-api-01.openai.azure.com",
+                "api_type": "azure",
+                "api_version": "2024-05-01-preview",
+            }
+        )
+        print(f"env_var: {env_var}")
+                
         with tempfile.NamedTemporaryFile(delete=False, mode='w') as temp:
             json.dump(env_var, temp)
             temp_file_path = temp.name

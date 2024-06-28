@@ -6,6 +6,6 @@
     "python.analysis.autoImportCompletions": true,
     "[python]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": "charliermarsh.ruff"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     }
 }
